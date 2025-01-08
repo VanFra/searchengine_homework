@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Platypus Search</title>
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+           font-family: 'Courier New', monospace;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Links Styling */
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Image container */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Make image responsive */
+        img {
+            width: 50%;
+            height: auto;
+            max-width: 100%;
+        }
+
+        /* Tooltip Styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Styling for the "Enter Server" form at the top-left */
+        .server-form {
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .server-form input {
+            font-size: 12px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .server-form button {
+            font-size: 12px;
+            padding: 5px 10px;
+            border: none;
+            background-color: #abc2db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+      
+
+        .search-form input {
+            font-size: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-form button {
+            font-size: 20px;
+            padding: 5px 10px;
+            border: none;
+            background-color: #abc2db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #b1b1b2;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- "Enter Server" form positioned at the top-left -->
+    <form action="/crawl" method="post" class="server-form">
+        <!-- <label for="server-url">Enter server (optional):</label> -->
+        <input type="text" id="server-url" name="url" placeholder="Server ID">
+        <span class="tooltip">&#x1F6C8;
+            <span class="tooltiptext">Optional: Please enter a server ID.</span>
+        </span>
+        <button type="submit">Crawl</button>
+    </form>
+
+    <!-- Main Content -->
+    <h1>Platypus Search &#10024; </h1>
+    <p> 
+        <img src="{{url_for('static', filename='images/platypus_search.png')}}" alt="Platypus Search Logo" />
+    </p>
+
+    <form action="/search" method="get", class="search-form">
+        <h2>Search</h2>
+        <input type="text" name="query" placeholder="Enter search query" required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .result {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .result h3 {
+            margin: 0;
+        }
+        .result p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .result a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+
+    {% if results %}
+        <ul>
+            {% for result in results %}
+            <li class="result">
+                <h3><a href="{{ result['url'] }}" target="_blank">{{ result['title'] }}</a></h3>
+                <p>{{ result['content'][:300] }}...</p> <!-- Show the first 300 characters -->
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found for your query.</p>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
