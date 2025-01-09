@@ -108,7 +108,7 @@ def search_index(query_str, index_dir="index"):
             results_list.append({
                 "url": result["url"],  
                 "title": result["title"],
-                "content": result["content"][:150]  # Include a snippet of content
+                "content": result["content"][:150]  
             })
     
     return results_list
@@ -117,5 +117,6 @@ def search_index(query_str, index_dir="index"):
 # Test the crawler and search functionality
 # url = "https://vm009.rz.uos.de/crawl/index.html"
 # crawl(url, index_dir="index")
+# test with spelling mistake
 # search_index("platapus", index_dir="index")
 
