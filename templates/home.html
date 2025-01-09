@@ -9,8 +9,8 @@
     <style>
         /* Basic Reset */
         * {
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
             box-sizing: border-box;
         }
 
@@ -21,29 +21,9 @@
             align-items: center;
             min-height: 100vh;
            font-family: 'Courier New', monospace;
-            background-color: #f4f4f9;
+            background-color: #e4eeef;
             color: #333;
             text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Container Styling */
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        /* Links Styling */
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
 
         /* Image container */
@@ -59,6 +39,7 @@
             width: 50%;
             height: auto;
             max-width: 100%;
+            padding-top: 50px;
         }
 
         /* Tooltip Styling */
@@ -78,8 +59,8 @@
             padding: 5px;
             position: absolute;
             z-index: 1;
-            bottom: 125%;
-            left: 50%;
+            top: 100%;
+            left: 0%;
             transform: translateX(-50%);
             opacity: 0;
             transition: opacity 0.3s;
@@ -90,19 +71,23 @@
             opacity: 1;
         }
 
+        h1 {
+            position:relative;
+            top: 60px;
+            font-size: 32px;
+        }
+
         /* Styling for the "Enter Server" form at the top-left */
         .server-form {
             position: absolute;
             top: 15px;
             left: 10px;
-            font-size: 12px;
             color: #666;
-            margin-top: 20px;
+          
         }
 
         .server-form input {
             font-size: 12px;
-            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-top: 20px;
@@ -145,9 +130,12 @@
 
 </head>
 <body>
+
+    
+    <h1>Platypus Search &#10024; </h1>
+
     <!-- "Enter Server" form positioned at the top-left -->
-    <form action="/crawl" method="post" class="server-form">
-        <!-- <label for="server-url">Enter server (optional):</label> -->
+    <form action="/crawl" method="post" class="form server-form">
         <input type="text" id="server-url" name="url" placeholder="Server ID">
         <span class="tooltip">&#x1F6C8;
             <span class="tooltiptext">Optional: Please enter a server ID.</span>
@@ -156,12 +144,12 @@
     </form>
 
     <!-- Main Content -->
-    <h1>Platypus Search &#10024; </h1>
     <p> 
+        <!-- added images as logo -->
         <img src="{{url_for('static', filename='images/platypus_search.png')}}" alt="Platypus Search Logo" />
     </p>
 
-    <form action="/search" method="get", class="search-form">
+    <form action="/search" method="get", class="form search-form">
         <h2>Search</h2>
         <input type="text" name="query" placeholder="Enter search query" required>
         <button type="submit">Search</button>
