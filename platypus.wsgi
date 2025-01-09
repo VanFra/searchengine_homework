@@ -1,2 +1,2 @@
-from app import app
+from platypus import app
 application = app
