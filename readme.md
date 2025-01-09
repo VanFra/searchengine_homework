@@ -38,7 +38,7 @@ A basic web crawler and search engine built using Python, Flask, and Whoosh. Thi
 
 1. Run the Flask application:
    ```bash
-   python app.py
+   python platypus.py
    ```
 
 2. Open your web browser and navigate to:
@@ -58,7 +58,7 @@ A basic web crawler and search engine built using Python, Flask, and Whoosh. Thi
 
 ```
 .
-├── app.py               # Flask application
+├── platypus.py               # Flask application
 ├── crawler.py           # Crawling and search logic
 ├── templates/
 │   ├── home.html        # Homepage template
