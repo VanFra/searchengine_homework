@@ -135,10 +135,10 @@
     <h1>Platypus Search &#10024; </h1>
 
     <!-- "Enter Server" form positioned at the top-left -->
-    <form action="/crawl" method="post" class="form server-form">
+    <form action="{{ url_for('crawl') }}" method="post" class="form server-form">
         <input type="text" id="server-url" name="url" placeholder="Server ID">
         <span class="tooltip">&#x1F6C8;
-            <span class="tooltiptext">Optional: Please enter a server ID.</span>
+            <span class="tooltiptext">Optional: Please enter a server ID before your search.</span>
         </span>
         <button type="submit">Crawl</button>
     </form>
@@ -149,7 +149,7 @@
         <img src="{{url_for('static', filename='images/platypus_search.png')}}" alt="Platypus Search Logo" />
     </p>
 
-    <form action="/search" method="get", class="form search-form">
+    <form action="{{ url_for('search') }}" method="get", class="form search-form">
         <h2>Search</h2>
         <input type="text" name="query" placeholder="Enter search query" required>
         <button type="submit">Search</button>
